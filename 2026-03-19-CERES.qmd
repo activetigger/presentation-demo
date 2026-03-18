@@ -1,0 +1,34 @@
+---
+title: "Démo Active Tigger - CERES"
+author: "Émilien S. Axel M."
+format: revealjs
+---
+
+## Objectifs de la présentation
+
+- Présentation générale de l'application et d'un cas d'utilisation.
+- Démonstration des features essentielles au workflow "Annotation augmentée".
+- Introduction aux notions de base du NLP et leurs problématiques dans le cadre de la recherche.
+
+## Cas d'étude de la séance
+
+Données: Abstract de thèses de data.gouv.fr, depuis les années 2000
+
+## Pourquoi utiliser Tigger dans ce cas là?
+
+## Déroulé de la séance 
+
+## Où trouver plus d'information
+
+## Annexes 
+
+### Qu'est ce qu'un embedding?
+
+### Qu'est ce qu'un classifier BERT ?
+
+### Qu'est ce qu'une projection 2D ?
+
+### Que sont les features ? 
+
+### Quelle est la différence entre les quick et BERT modèles
+
