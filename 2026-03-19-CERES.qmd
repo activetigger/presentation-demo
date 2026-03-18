@@ -93,6 +93,8 @@ Source : [Renesh Bedre — How to Split Data into Train and Test Sets in Python 
 
 ## Annexes 
 
+--- 
+
 ### Qu'est ce qu'un embedding?
 
 Les embeddings (ou plongement) sont des représentations vectorielles d'une entité qui encode son information pour permettre ensuite des traitements de machine learning
@@ -103,13 +105,19 @@ Source [Joel Barnard — What is embedding?](https://www.ibm.com/think/topics/em
 
 Source: [Manoj Kumar — Explain vector embeddings to your mom](https://peerlist.io/manojsde/articles/explain-vector-embeddings-to-your-mom)
 
+--- 
+
 ### Qu'est ce qu'un classifier BERT ?
 
 ![](https://jalammar.github.io/images/BERT-classification-spam.png)
 
 Source: [Jay Alammar — The Illustrated BERT, ELMo, and co. (How NLP Cracked Transfer Learning)](https://jalammar.github.io/illustrated-bert/)
 
+--- 
+
 ### Qu'est ce qu'une projection 2D ?
+
+--- 
 
 ### Que sont les features ? 
 
@@ -119,6 +127,8 @@ Dans Active Tigger, on peut donner de nombreuses représentations numériques au
 - DFM : représentation par comptage de mots dans les documents
 - Regex : valeur booleenne, l'expression reguliere a-t-elle été trouvée dans le texte?
 - métadonnées à importées
+
+---
 
 ### Quelle est la différence entre les quick et BERT modèles
 
