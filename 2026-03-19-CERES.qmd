@@ -6,29 +6,124 @@ format: revealjs
 
 ## Objectifs de la présentation
 
-- Présentation générale de l'application et d'un cas d'utilisation.
-- Démonstration des features essentielles au workflow "Annotation augmentée".
-- Introduction aux notions de base du NLP et leurs problématiques dans le cadre de la recherche.
+- Pourquoi Active Tigger ? CSS & NLP
+- Principales fonctionnalités d'Active Tigger : comment s'y mettre ?
+    - Entrainer un classifieur
+- Éclairage sur les notions fondamentales (embeddings, etc.)
+- Discussion sur les besoins actuels et futurs
 
-## Cas d'étude de la séance
+## Naissance du projet Active Tigger 
 
-Données: Abstract de thèses de data.gouv.fr, depuis les années 2000
+- Pour les pratiques avancées/spécifiques : le code
+- Mais quelques pratiques stabilisées / nécessité de démocratiser
+    - Annoter des grands corpus avec un ensemble de labels
+    - Besoin de collaborer sur un projet
+- Un démonstrateur en R développé par É. Ollion et J.Boelaert en 2023
+- Mettre à l'échelle et constituer une communauté de pratique
+- Faire évoluer pour s'adapter aux besoin de recherche
 
-## Pourquoi utiliser Tigger dans ce cas là?
+
+## Ancré dans la recherche
+
+- Ollion, E., Boelaert, J., Coavoux, S., Delaine, E., Desprès, A., Gollac, S., Keyhani, N., & Mommeja, A. (2025). La part du genre. Genre et approche intersectionnelle dans les sciences sociales françaises au XXIe siècle. https://doi.org/10.31235/osf.io/qamux_v2
+- Claesson, A. (2025). Le prix de la visibilité. Une analyse computationnelle des interactions en ligne avec des député·es français·es. Revue française de science politique, . 75(3), 549-579. https://doi.org/10.3917/rfsp.753.0549
+- Identifier les articles de presse qui parlent de l'environnement (Jules Brion)
+- Analyser la présence de certaines informations dans des professions de foi (Frédéric Gonthier)
+
+## Découverte pratique par la démo
+
+**Comment évolue la prise en compte des réflexion sur le genre dans la littérature en sciences sociales françaises ?**
+
+Données: Abstract des articles de sciences sociales publiés dans des revues françaises entre 2000 et 2022.
+
+Aperçu des données:
+- ~30,000 articles, découpées au niveau de la phrase = 50,000 lignes
+- Chaque phrase fait en moyenne 170 caractères (q25:100; q75:200)
+- Métadonnées présentes: revue, discipline et la proportion d'hommes/femmes dans les co-auteur.ices
+- Une colonne d'annotations utilisées comme "gold-standard"
+
+
+## Logique générale
+
+
+
+
+
+## Le codage : toujours un travail conceptuel
+
+1. La distinction homme/femme comme variable d’analyse (le plus souvent statistique, parfois la simple mention du sexe comme variable de contrôle)
+2. Les rapports sociaux en tant qu’ils sont appréhendés selon cet ordre sexué (ou leur absence dûment notée), comme la parentalité, la sexualité, la division du travail, les violences sexistes et sexuelles, etc. Cela inclut les études sur les femmes (ou les hommes) comme groupe social.
+3. L’identité de genre et les rôles de sexe, les hiérarchies internes aux groupes de sexe (féminités, masculinités, transidentité, non-binarité, performativité des rôles de sexe…). 
+4. L’identité sexuelle et plus généralement l’opération d’une distinction entre des sexualités (qui ne pourrait exister sans distinction préalable entre sexes). La sexualité n’a toutefois été prise en compte que dans la mesure où elle est abordée selon l’ordre de genre (et non simplement la sexualité comme variable statistique dans, par exemple, une enquête épidémiologique).
+
+
+## Pourquoi utiliser Active Tigger dans ce cas là?
+
+- Travail en collaboration
+- Facilier 
+- Nombre important de données textuelles à traiter
+- Pattern trop complexe pour des techniques de type dictionnaire
 
 ## Déroulé de la séance 
 
+Présentation des fonctionnalités
+- Connexion à une instance d'Active Tigger
+- Gestion d'un projet (création de schemes, labels, inviter des collaborateur.ices)
+- Annotation mannuelle collaborative
+- Entraînement de modèles
+- Jonction entre l'annotation manuelle et les prédictions des modèles
+- Export des données
+
+
+
+
+## Division du jeux de données en sous-ensembles
+
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.reneshbedre.com%2Fassets%2Fposts%2Fothers%2Fsplit_train_test.webp&f=1&nofb=1&ipt=0526fb9533e3540d23f639d1a3bbcb7d90e1ed785da5eb6e4d49faaa813ebfaa)
+
+Source : [Renesh Bedre — How to Split Data into Train and Test Sets in Python with sklearn](https://www.reneshbedre.com/blog/split-train-test-python.html)
+
 ## Où trouver plus d'information
+
+- [Documentation](activetigger.com/documentation)
+- [Dépot Github](github.com/activetigger/activetigger)
+- [Site CSS.CNRS.fr](css.cnrs.fr)
+- [Serveur Discord](https://discord.gg/sd2Em7rrW2)
+- Mail: emilien.schultz[at]ensae.fr
 
 ## Annexes 
 
 ### Qu'est ce qu'un embedding?
 
+Les embeddings (ou plongement) sont des représentations vectorielles d'une entité qui encode son information pour permettre ensuite des traitements de machine learning
+
+Source [Joel Barnard — What is embedding?](https://www.ibm.com/think/topics/embedding)
+
+![](https://qdrant.tech/articles_data/what-are-embeddings/How-Embeddings-Work.jpg)
+
+Source: [Manoj Kumar — Explain vector embeddings to your mom](https://peerlist.io/manojsde/articles/explain-vector-embeddings-to-your-mom)
+
 ### Qu'est ce qu'un classifier BERT ?
+
+![](https://jalammar.github.io/images/BERT-classification-spam.png)
+
+Source: [Jay Alammar — The Illustrated BERT, ELMo, and co. (How NLP Cracked Transfer Learning)](https://jalammar.github.io/illustrated-bert/)
 
 ### Qu'est ce qu'une projection 2D ?
 
 ### Que sont les features ? 
 
+Dans Active Tigger, on peut donner de nombreuses représentations numériques aux textes: 
+- Embeddings : générés avec des modèles pré-entrainés
+- Fasttext : généré avec des XXX
+- DFM : représentation par comptage de mots dans les documents
+- Regex : valeur booleenne, l'expression reguliere a-t-elle été trouvée dans le texte?
+- métadonnées à importées
+
 ### Quelle est la différence entre les quick et BERT modèles
 
+Dans les deux cas, ces modèles sont utilisés comme **classifieurs**. On les entraîne et évalue de la même manière. Les différences majeurs: 
+
+- Le temps d'entraînement : <2 min pour les quicks et jusqu'à plusieurs dizaines de minutes pour les plus gros modèles BERT
+- Le nombre de poids : Les modèles quick contiennent plusieurs centaines de paramètres tout au plus, quand les modèles BERT peuvent en contenir plusieurs centaines de millions
+    - Cette différence vient du fait que les modèles quick s'appuient sur des features qui ne sont pas mises à jour pendant l'entraînement alors que le modèle BERT vient altérer l'espace de plongement pour atteindre de meilleures performances (supposément).x
