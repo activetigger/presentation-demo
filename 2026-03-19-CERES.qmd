@@ -210,10 +210,10 @@ Pourquoi c'est utile ?
 
 Source: [Jay Alammar — The Illustrated BERT, ELMo, and co. (How NLP Cracked Transfer Learning)](https://jalammar.github.io/illustrated-bert/)
 
-
 ## Que sont les features ? 
 
 Dans Active Tigger, on peut donner de nombreuses représentations numériques aux textes: 
+
 - Embeddings : générés avec des modèles pré-entrainés
 - Fasttext : généré avec des XXX
 - DFM : représentation par comptage de mots dans les documents
