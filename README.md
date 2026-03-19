@@ -1,2 +1,3 @@
-# demo-and-presentation
-This repo collects demo and presentation material.
+# Presentation
+
+[Access to the slides](activetigger.com/presentation-demo)

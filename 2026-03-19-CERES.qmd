@@ -12,6 +12,7 @@ format:
     hash: true
 lang: fr
 ---
+
 ## Objectifs de la présentation
 
 - Pourquoi Active Tigger ? 
@@ -175,11 +176,33 @@ Source: [Manoj Kumar — Explain vector embeddings to your mom](https://peerlist
 
 ## Logique générale de l'apprentissage supervisé
 
+Des annotations initiales faites par des humains
+
+- Données d'entraînement : on fournit à la machine des milliers d'exemples avec la "bonne réponse"
+- Apprentissage : un modèle (poids) est progressivement modifié pour améliorer la prédiction sur ces données initiales
+    - Différents types de modèles : ML, DL, ...
+- Prédiction : le modèle peut prédire sur des données, notamment nouvelles
+- Évaluation : les prédictions sont comparables aux annotations initiales
+    - Différentes métriques suivant la tâche
+    - Sur des données initialement non utilisées pour entrainer
 
 
 ## Qu'est-ce que l'Active Learning ?
 
+Plutôt que d'annoter au hasard, des règles de sélection des éléments 
 
+
+Comment ça marche ?
+
+- Départ : entrainer un modèle sur un petit nombre d'annotation
+- Identification des éléments les plus incertains
+- Prioriser ces éléments
+- Réentrainer le modèle & itérer
+
+Pourquoi c'est utile ?
+
+- Moins d'étiquetage : réduire le travail humain
+- Datasets de meilleur qualité : limiter la redondance de l'information
 
 ## Qu'est ce qu'un classifier BERT ?
 
@@ -187,7 +210,6 @@ Source: [Manoj Kumar — Explain vector embeddings to your mom](https://peerlist
 
 Source: [Jay Alammar — The Illustrated BERT, ELMo, and co. (How NLP Cracked Transfer Learning)](https://jalammar.github.io/illustrated-bert/)
 
-### Qu'est ce qu'une projection 2D ?
 
 ## Que sont les features ? 
 
