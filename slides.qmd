@@ -1,8 +1,8 @@
 ---
 title: "Annoter avec Active Tigger"
-subtitle: "Un outil d'annotation assistée par IA"
-author: "Émilien Schultz · Axel Morin - CREST / CSS@IPP"
-institute: "Séminaire GARNET"
+subtitle: "Étendre l'analyse des grands corpus textuels"
+author: "Émilien Schultz · CREST (Groupe ENSAE-ENSAI) / CSS@IPP"
+institute: "URFIST"
 date: today
 date-format: "D MMMM YYYY"
 format:
@@ -15,38 +15,43 @@ lang: fr
 
 ## Objectifs de la présentation
 
-- Pourquoi Active Tigger ? 
+- Pourquoi ActiveTigger ? 
     - CSS & NLP
-- Principales fonctionnalités d'Active Tigger et comment se lancer
-    - Éclairages sur des notions fondamentales (embeddings, etc.)
-- Discussion
-    - Besoins
-    - Évolutions
+- Principales fonctionnalités
+    - Comment se lancer ?
+- Discussions
+    - Concepts
+    - Usages
+
+**Pas un cours théorique**
 
 ## Origines
 
-- Pour les pratiques avancées/spécifiques : le code
-- Comment ouvrir les usages stabilisés ?
+- Programmer = flexibilité
+- Ouvrir les usages stabilisés ?
     - Annoter des grands corpus avec un ensemble de labels
     - Besoin de collaborer sur un projet
     - Faciliter la formation aux outils
 - Un démonstrateur en R développé par É. Ollion et J.Boelaert en 2023
 - Mettre à l'échelle et constituer une communauté de pratique
     - open source / reproductibilité
-- Plateforme de réflexion
 
 ## Un outil ancré dans la recherche
 
 Groupe [CSS@IPP](https://www.css.cnrs.fr/) au CREST (Groupe ENSAE-ENSAI / CNRS / Polytechnique)
 
--  La part du genre. Genre et approche intersectionnelle dans les sciences sociales françaises au XXIe siècle, Boelaert J. et al, 2025. 
-- Le prix de la visibilité. Une analyse computationnelle des interactions en ligne avec des député·es français·es. Revue française de science politique, Claesson A., 2025
+-  *La part du genre. Genre et approche intersectionnelle dans les sciences sociales françaises au XXIe siècle, Boelaert J. et al, 2025.*
+- *Le prix de la visibilité. Une analyse computationnelle des interactions en ligne avec des député·es français·es. Revue française de science politique, Claesson A., 2025*
 
-Une communauté plus large en formation
+Une communauté d'utilisateurs.rices en formation
 
-- Identifier les articles de presse qui parlent de l'environnement (Jules Brion)
-- Analyser la présence de certaines informations dans des professions de foi (Frédéric Gonthier)
-- ...
+## Quelle IA dans ActiveTigger ?
+
+- Du machine learning 'classique'
+- Des modèles 'légers' BERT
+- Expérimentations ponctuelles avec du génératif
+
+Enjeu : garder la main sur l'annotation, l'évaluation et l'interprétation
 
 
 ## Situation actuelle
@@ -58,11 +63,10 @@ Presque une V1 + communauté d'utilisateurs instance dev. du CREST
 - [Dépot Github du code](github.com/activetigger/activetigger)
 - [Serveur Discord](https://discord.gg/sd2Em7rrW2)
 
-
 Pour toute info : emilien.schultz[at]ensae.fr
 
 
-## Des contributions multiples
+## Des contributeurs multiples
 
 - Comité Scientifique
 - Développement interne
@@ -78,60 +82,52 @@ Pour toute info : emilien.schultz[at]ensae.fr
 ![](img/partdugenre.png){fig-align="center"}
 
 
-Données: Abstract des articles de sciences sociales publiés dans des revues françaises entre 2000 et 2022.
+*Données: Abstract des articles de sciences sociales publiés dans des revues françaises*
+
+
+## Annoter, généraliser puis analyser
+
+![](img/genrevolution.png){fig-align="center"}
 
 
 ## Logique générale
 
-
-Concrètement, mettre un label par abstract genre/pas genre sur un gros volume (et tester différentes stratégies)
-
+En pratique : des étiquettes sur des textes
 
 - Travail conceptuel pour définir les concepts
 - Construire un échantillon d'éléments annotés
     - En maximisant la diversité et en limitant le temps passé
-- Entrainer un classifieur qui peut prédire pour un texte les labels
-    - Améliorer suffisamment ce classifieur pour nos objectifs
+- Entrainer un classifieur **texte -> label**
 - L'appliquer à l'ensemble du corpus
 - Télécharger les résultats et le classifieur pour la reproductibilité
 
-## Pourquoi Active Tigger ?
+##
+
+![](img/active-tigger-overview.svg){fig-align="center"}
+
+
+## Alors pourquoi Active Tigger ?
 
 - Facilier l'interaction avec les données
-- Travail en collaboration
 - Contraindre les étapes pour garantir la progression
 - Avoir de l'active learning pour annoter plus vite
+- Travail en collaboration
 - Accès à des ressources GPU en fonction de l'instance
 - Traitement en volume (encodeurs assez légers)
 
 
-## Étapes de la démo
+## Entrée : des données tabulaires
 
-- Connexion à une instance d'Active Tigger
-- Gestion d'un projet (création de project, de schemes, de labels)
-- Annotation manuelle collaborative d'un échantillon
-- Entraîner un modèle temporaire
-- Utiliser la prédiction d'un modèle pour annoter : l'active learning
-- Entrainer un modèle BERT
-- Généraliser la prédiction
-- Export des données
-
-*Et pour finir, revenir sur la création d'un projet*
-
-
-## Le point de départ : des données tabulaires
-
-Tout un travail en amont : mettre en forme les données (pas dans Active Tigger)
+Travail en amont : mettre en forme les données
 
 - ~30,000 articles, découpées au niveau de la phrase = 50,000 lignes
-- Chaque phrase fait en moyenne 170 caractères (q25:100; q75:200)
+- Chaque phrase fait en moyenne 170 caractères
 - Métadonnées présentes: revue, discipline et la proportion d'hommes/femmes dans les co-auteur.ices
-- Une colonne d'annotations utilisées comme "gold-standard"
 
 ## Étape centrale & conceptuel : le codage
 
 - Différentes conception du genre
-- Quelles sont les catégories ?
+- Quelles sont les catégories retenues ?
 - Expérimenter
     
 *Choix d'une conception large : à la fois rapports de genre, mention des aspects genrés dans les processus sociaux, etc.*
@@ -150,7 +146,7 @@ Source : [Renesh Bedre — How to Split Data into Train and Test Sets in Python 
 ## Passage à la démo
 
 - Projet déjà créé
-- Comptes accessibles ici sur une instance démo : [https://minifi.ca/CJwfM](https://hedgedoc.lab.groupe-genes.fr/ScTncJbHSIudoSX2fx2DRQ)
+- Comptes accessibles ici sur une instance démo : https://hedgedoc.lab.groupe-genes.fr/LFtZt3mcQO-MzKdcb7nY4Q
 
 (vous pouvez créer des projets aussi, mais si on est nombreux ralentissements possibles)
 
@@ -160,7 +156,7 @@ Source : [Renesh Bedre — How to Split Data into Train and Test Sets in Python 
 ## Aller plus loin : d'autres fonctionnalités
 
 - Explorer avec Bertopic
-- Sélectionner avec la projection
+- Sélectionner avec une projection
 - Utiliser les prédictions des BERT pour l'active learning
 - Comparer les annotations entre utilisateurs
 - Expérimenter avec le génératif
@@ -241,3 +237,14 @@ Dans les deux cas, ces modèles sont utilisés comme **classifieurs**. On les en
 - Le temps d'entraînement : <2 min pour les quicks et jusqu'à plusieurs dizaines de minutes pour les plus gros modèles BERT
 - Le nombre de poids : Les modèles quick contiennent plusieurs centaines de paramètres tout au plus, quand les modèles BERT peuvent en contenir plusieurs centaines de millions
     - Cette différence vient du fait que les modèles quick s'appuient sur des features qui ne sont pas mises à jour pendant l'entraînement alors que le modèle BERT vient altérer l'espace de plongement pour atteindre de meilleures performances (supposément).x
+
+## Évaluer une classification
+
+Au coeur : données de test - ground truth / gold standard
+
+Des métriques classiques
+
+- Accuracy : proportion générale de bonne classification
+- Precision :  proportion des éléments que le modèle a classés comme positifs qui sont réellement positifs
+- Recall : proportion des éléments réellement positifs que le modèle a correctement identifiés comme positifs
+- F1-score : moyenne harmonique de precision et recall
